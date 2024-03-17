@@ -67,6 +67,13 @@
         padding: 50px;
         border: 10px solid white;
       }
+
+      img {
+        width: 50%;
+        margin-bottom: 30px;
+        margin-right: 25%;
+        margin-left: 25%;
+      }
     </style>
     <script>
       window.onload = function () {
@@ -219,28 +226,68 @@
           },
           // New here
           {
-            question: "Are Border Collies the smartest dog breed?",
+            question: "Is this a Golden Retriever?",
             answer: true,
-            picture: undefined,
-            answerText: "Border Collies are considered the smartest dog breed!",
+            picture: "1",
+            answerText: "",
           },
           {
-            question: "Are Border Collies the smartest dog breed?",
-            answer: true,
-            picture: undefined,
-            answerText: "Border Collies are considered the smartest dog breed!",
+            question: "Is this an Australian Shepherd?",
+            answer: false,
+            picture: "2",
+            answerText: "",
           },
           {
-            question: "Are Border Collies the smartest dog breed?",
+            question: "Is this a Curly Coated Retriever?",
             answer: true,
-            picture: undefined,
-            answerText: "Border Collies are considered the smartest dog breed!",
+            picture: "3",
+            answerText: "",
+          },
+          {
+            question: "Is this a Bouvier?",
+            answer: false,
+            picture: "4",
+            answerText: "",
+          },
+          {
+            question: "Is this an Airedale Terrier?",
+            answer: false,
+            picture: "5",
+            answerText: "",
+          },
+          {
+            question: "Is this a Spoodle?",
+            answer: false,
+            picture: "6",
+            answerText: "",
+          },
+          {
+            question: "Is this a West Highland White?",
+            answer: false,
+            picture: "7",
+            answerText: "",
+          },
+          {
+            question: "Is this a Labradoodle?",
+            answer: false,
+            picture: "8",
+            answerText: "",
+          },
+          {
+            question: "Is this a Flat Coated Retriever?",
+            answer: false,
+            picture: "9",
+            answerText: "",
+          },
+          {
+            question: "Is this a Collie Rough?",
+            answer: false,
+            picture: "10",
+            answerText: "",
           },
         ];
 
         const stepLast = jsonData.length - 1;
-
-        console.log(jsonData[stepLast - 1]);
 
         const answerBoxs =
           '<div class="flexBox"><div class="btnBox"><h1 class="font12">YES</h1></div><div class="btnBox"><h1 class="font12">NO</h1></div></div>';
@@ -268,6 +315,15 @@
           const titleLastWord = `<h1 class="font2">${question.question
             .split(" ")
             .pop()}</h1>`;
+
+          if (question.picture) {
+            return (
+              title +
+              titleLastWord +
+              `<img src="./images/${question.picture}.png" />` +
+              answerBoxs
+            );
+          }
 
           return title + titleLastWord + answerBoxs;
         }
@@ -317,7 +373,7 @@
               }
               replaceContentWithQuestion(step);
               showingAnswer = false;
-            }, 5000);
+            }, 4000);
           }
         });
 
